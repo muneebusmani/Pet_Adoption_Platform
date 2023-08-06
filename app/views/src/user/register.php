@@ -1,7 +1,7 @@
 <?php
 foreach($_POST as $key => $value){$$key=$value;}
 if (isset($_POST['submit'])) {
-    $handling=new controllers\handling($uName,$fName,$email,$password,$cPassword,$role);
+    $handling=new models\user($uName,$fName,$email,$password,$cPassword,$role);
     $handling->handleUserReg();
 }
 ?>

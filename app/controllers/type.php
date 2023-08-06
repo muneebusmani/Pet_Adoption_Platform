@@ -1,6 +1,6 @@
 <?php
 namespace controllers;
-class user
+class type
 {
     private $userName;
     private $name;

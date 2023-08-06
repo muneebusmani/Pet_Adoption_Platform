@@ -1,5 +1,5 @@
 <?php
-namespace controllers;
+namespace controllers\user;
 
 class validation extends credentials{
     public function validateUserReg(){
