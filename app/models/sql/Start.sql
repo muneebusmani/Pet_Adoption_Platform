@@ -30,6 +30,17 @@ BEGIN
     SELECT * FROM users
 END
 
+
+CREATE PROCEDURE [if exists]
+@username varchar(255),
+@email varchar(255)
+AS
+BEGIN
+SELECT username,email FROM users where username = @username or email = @email;
+END
+drop procedure [if exists];
+
+
 CREATE PROCEDURE userReg 
 @username VARCHAR(255),
 @name VARCHAR(255),
@@ -42,3 +53,12 @@ BEGIN
 END
 userReg 'muneeb69','Muneeb Usmani','muneebusmani8355@gmail.com','muneeb123','Adopter';
 admin;
+
+
+
+
+
+
+use [Pet Adoption Platform];
+select * from users;
+truncate table users;

@@ -19,6 +19,7 @@ class routes {
             "index",
             "contact",
             "support",
+            "register",
         ];
     }
     public function get(){

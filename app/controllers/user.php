@@ -17,9 +17,5 @@ class user
     }
     private function session(){
         $this->userName         =$_SESSION['userName'];
-        $this->name             =$_SESSION['name'];
-        $this->email            =$_SESSION['email'];
-        $this->password         =$_SESSION['password'];
-        $this->role             =$_SESSION['role'];
     }
 }
