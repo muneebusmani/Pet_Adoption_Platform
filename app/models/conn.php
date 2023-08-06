@@ -9,7 +9,6 @@ class conn extends PDO {
     private $username;
     private $password;
     private $options; 
-
     function __construct(
         string $dsnPrefix,
         string $serverName,

@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function ($className) {
     // Define the base directory where your classes are located
-    $baseDir = __DIR__ . '/app/';
+    $baseDir ='app/';
 
     // Replace the namespace separator with the directory separator
     $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
