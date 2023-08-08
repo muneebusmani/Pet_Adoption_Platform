@@ -11,10 +11,11 @@ class usermodel{
     }
     function load_profile()
     {
+        global $conn;
         $sql="profile_fetch ?,?";
         $stmt=$this->conn->prepare($sql);
         $stmt->execute([$this->uName,$this->email]);
-        $Profile=$stmt->fetch(conn::FETCH_OBJ);
+        $Profile=$stmt->fetch($conn::FETCH_OBJ);
         return $Profile;
     }
 }

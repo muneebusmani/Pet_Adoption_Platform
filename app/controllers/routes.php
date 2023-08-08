@@ -20,6 +20,7 @@ class routes {
             "contact",
             "support",
             "register",
+            "profile",
         ];
     }
     public function get(){

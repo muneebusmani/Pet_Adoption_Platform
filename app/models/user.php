@@ -14,8 +14,8 @@ class user extends conn{
         {
                 $validation=new validation($this->uName,$this->fName,$this->email,$this->password,$this->cPassword);
                 if ($validation->validateUserReg()){
-                    $con = new conn('sqlsrv', 'localhost', 'Pet Adoption Platform', 'sa', 'muneeb123', array("Encrypt" => 1,"TrustServerCertificate" => 0));
-                    $conn=$con->create();
+                    $con=new conn();
+                    $conn=$con->init();
                     $stmt=$conn->prepare("[if exists] ?,?");
                     $stmt->execute([$this->uName,$this->email]);
                     $row=$stmt->fetch();
@@ -27,13 +27,13 @@ class user extends conn{
                         $password=$this->password;
                         $cPassword=$this->cPassword;
                         $role=$this->role;
-                        if ($stmt->execute([$uName,$fName,$email,$password,$cPassword,$role])) {
+                        if ($stmt->execute([$uName,$fName,$email,$password,$role])) {
                             echo "
                             <script>
                             alert('Sign Up Success');
                             </script>";
                             $user=new type($this->uName,$this->fName,$this->email,$this->password,$this->cPassword,$this->role);
-                            $credentials=$user->load_profile();
+                            return $user->load_profile();
                         }
                     }
                     else{
@@ -41,6 +41,7 @@ class user extends conn{
                         "<script>
                         alert('User Already Exists')
                         </script>";
+                        return false;
                     }
                 }
         }

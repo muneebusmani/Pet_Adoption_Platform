@@ -18,7 +18,8 @@ class type
         $this->role             =$role;
     }
     public function load_profile(){
-        $user=new usermodel($_SESSION['conn'], $this->uName, $this->email);
+        global $conn;
+        $user=new usermodel($conn, $this->uName, $this->email);
         $Profile=$user->load_profile();
 
         $this->fName=$Profile->name;
@@ -27,9 +28,9 @@ class type
         $this->password=$Profile->password;
 
         return array(
-            'uName'=>$this->uName,
+            'username'=>$this->uName,
             'email'=>$this->email,
-            'fName'=>$this->fName,
+            'full_name'=>$this->fName,
             'password'=>$this->password
         );
 }
