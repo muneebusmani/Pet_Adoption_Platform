@@ -1,16 +1,10 @@
 <?php
 namespace controllers\user;
+use controllers\type;
 
-class credentials
+class credentials extends type
 {
-    protected string $uName;
-    protected string $fName;
-    protected string $email;
-    protected string $password;
-    protected string $cPassword;
-    protected string $role;
-
-    protected $err = [];
+    private $err = [];
 
     public function pswdLen()
     {

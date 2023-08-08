@@ -29,6 +29,8 @@ AS
 BEGIN
     SELECT * FROM users
 END
+drop procedure admin
+
 
 
 CREATE PROCEDURE [if exists]
@@ -51,9 +53,15 @@ AS
 BEGIN
     INSERT INTO users([username],[name],[email],[password],[role]) VALUES (@username,@name,@email,@password,@role)
 END
-userReg 'muneeb69','Muneeb Usmani','muneebusmani8355@gmail.com','muneeb123','Adopter';
-admin;
 
+
+CREATE PROCEDURE profile_fetch
+ @username VARCHAR(255),
+ @email VARCHAR(255)
+AS
+ BEGIN
+  SELECT * FROM users WHERE username=@username AND email=@email
+ END 
 
 
 

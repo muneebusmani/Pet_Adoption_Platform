@@ -1,5 +1,6 @@
 <?php
 namespace models;
+use controllers\type;
 use controllers\user\validation;
 class user extends conn{
     
@@ -20,11 +21,19 @@ class user extends conn{
                     $row=$stmt->fetch();
                     if (!$row){
                         $stmt=$conn->prepare("userReg ?,?,?,?,?");
-                        if ($stmt->execute([$this->uName,$this->fName,$this->email,$this->password,$this->role])) {
+                        $uName=$this->uName;
+                        $fName=$this->fName;
+                        $email=$this->email;
+                        $password=$this->password;
+                        $cPassword=$this->cPassword;
+                        $role=$this->role;
+                        if ($stmt->execute([$uName,$fName,$email,$password,$cPassword,$role])) {
                             echo "
                             <script>
                             alert('Sign Up Success');
                             </script>";
+                            $user=new type($this->uName,$this->fName,$this->email,$this->password,$this->cPassword,$this->role);
+                            $credentials=$user->load_profile();
                         }
                     }
                     else{

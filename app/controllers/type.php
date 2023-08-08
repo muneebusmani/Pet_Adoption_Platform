@@ -1,21 +1,36 @@
 <?php
 namespace controllers;
+use models\usermodel;
 class type
 {
-    private $userName;
-    private $name;
-    private $email;
-    private $password;
-    private $role;
+    protected $fName;
+    protected $email;
+    protected $uName;
+    protected $password;
+    protected $cPassword;
+    protected $role;
 
     function __construct(string $userName,string $name,string $email,string $password,string $confirmPassword,string $role,) {
-        $this->userName         =$userName;
-        $this->name             =$name;
+        $this->uName            =$userName;
+        $this->fName            =$name;
         $this->email            =$email;
         $this->password         =$password;
         $this->role             =$role;
     }
-    private function session(){
-        $this->userName         =$_SESSION['userName'];
-    }
+    public function load_profile(){
+        $user=new usermodel($_SESSION['conn'], $this->uName, $this->email);
+        $Profile=$user->load_profile();
+
+        $this->fName=$Profile->name;
+        $this->email=$Profile->email;
+        $this->uName=$Profile->username;
+        $this->password=$Profile->password;
+
+        return array(
+            'uName'=>$this->uName,
+            'email'=>$this->email,
+            'fName'=>$this->fName,
+            'password'=>$this->password
+        );
+}
 }
