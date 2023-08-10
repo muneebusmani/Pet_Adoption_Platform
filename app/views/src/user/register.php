@@ -1,19 +1,16 @@
 <?php
-foreach($_POST as $key => $value){$$key=$value;}
-if (isset($_POST['submit'])) {
-    $handling = new models\user($uName,$fName,$email,$password,$cPassword,$role);
-   if(($creds = $handling->handleUserReg()) && $creds!=false){
-    // Encode the array as JSON
-    $jsonData = json_encode($creds);
-
-    // Set the JSON data as a custom header
-    header('Custom-Data: ' . base64_encode($jsonData));
-
-    // Perform a redirect after sending the headers (optional)
-    header('Location: profile');
+foreach ($_POST as $key => $value) {
+    $$key = $value;
 }
+if (isset($_POST['submit'])) {
+    $handling = new models\user($uName, $fName, $email, $password, $cPassword, $role);
+    if (($creds = $handling->handleUserReg())) {
+        $_SESSION=array_merge($_SESSION,$creds);
+        header("location: handler");
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

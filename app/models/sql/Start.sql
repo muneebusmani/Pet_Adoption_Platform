@@ -64,6 +64,13 @@ AS
  END 
 
 
+CREATE PROCEDURE [fetch profile via username]
+@username VARCHAR(255)
+AS
+BEGIN
+SELECT * FROM users WHERE username=@username;
+END
+GO
 
 
 

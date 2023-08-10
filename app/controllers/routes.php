@@ -21,6 +21,9 @@ class routes {
             "support",
             "register",
             "profile",
+            "staff/profile",
+            "adopter/profile",
+            "forbidden",
         ];
     }
     public function get(){

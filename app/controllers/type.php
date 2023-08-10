@@ -23,15 +23,11 @@ class type
         $Profile=$user->load_profile();
 
         $this->fName=$Profile->name;
-        $this->email=$Profile->email;
         $this->uName=$Profile->username;
-        $this->password=$Profile->password;
 
         return array(
             'username'=>$this->uName,
-            'email'=>$this->email,
-            'full_name'=>$this->fName,
-            'password'=>$this->password
+            'role'=>$this->role,
         );
 }
 }
