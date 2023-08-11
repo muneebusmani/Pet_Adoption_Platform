@@ -1,7 +1,3 @@
-<?php
-$_ENV['message']='This is an example message';
-print_r($_ENV);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

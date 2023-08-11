@@ -1,9 +1,5 @@
 <?php
-$username=$_SESSION['username'];
-$role=$_SESSION['role'];
-
-
-switch ($profile['role']) {
+switch ($_SESSION['role']) {
 
     case 'Shelter Staff':
         header('location: staff/profile');

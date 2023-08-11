@@ -5,7 +5,8 @@ ini_set('display_errors', 1);
 
 require_once "autoloader.php";
 session_start();
-$_ENV['conn']=$con->init();
+$con=new models\conn();
+$conn=$_ENV['conn']=$con->init();
 foreach ($_ENV as $key => $value) {
     $$key=$value;
 }
