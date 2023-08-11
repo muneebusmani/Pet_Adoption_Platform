@@ -1,3 +1,7 @@
+<?php
+// print_r($_SESSION);
+// session_unset();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

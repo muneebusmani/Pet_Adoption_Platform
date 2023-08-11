@@ -3,8 +3,8 @@ namespace controllers;
 class routes {
     private $projRoot='/Pet_Adoption_Platform';
     private $uri;
-    private $userDir="app/views/src/user/";
-    private $adminDir="app/views/src/admin/";
+    private $userDir="public/src/user/";
+    private $adminDir="public/src/admin/";
     private $xt=".php";
 
     private function clean(){
@@ -21,20 +21,23 @@ class routes {
             "support",
             "register",
             "profile",
+            "login",
             "staff/profile",
             "adopter/profile",
             "forbidden",
+            "handler",
         ];
     }
     public function get(){
         $uriAQuery=$this->clean();
         $uri=$uriAQuery[0];
-        $errDir="app/views/error404.php";
+        $errDir="public/error404.php";
         if(empty($uri)){
             $uri='index';
         }
         $file=$this->userDir.$uri.$this->xt;
-        if (file_exists($file) && in_array($uri, $this->routes())) {
+        if (file_exists($file) && in_array($uri, $this->routes())
+        ) {
             require $file;
         }
         else {
