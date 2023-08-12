@@ -10,8 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        Hello User
-    </h1>
+    <h1 class="bg-red-500 text-cyan-500">Hello User</h1>
 </body>
 </html>

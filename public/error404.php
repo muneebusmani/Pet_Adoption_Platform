@@ -5,54 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 Not Found</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .error-code {
-            font-size: 8rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .error-message {
-            font-size: 1.5rem;
-            color: #777;
-            margin-bottom: 20px;
-        }
-
-        .home-link {
-            font-size: 1rem;
-            color: #007bff;
-            text-decoration: none;
-            border: 1px solid #007bff;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
-        .home-link:hover {
-            background-color: #007bff;
-            color: #fff;
+        body > div > * {
+            width: 100%;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="error-code">404</div>
-        <div class="error-message">Oops! Page not found.</div>
-        <a href="index" class="home-link">Go to Home</a>
+<body class="p-0 m-0">
+    <div class="flex flex-wrap w-full text-center items-center h-screen">
+        <section class="w-full h-1/4">
+            <div class="text-3xl">
+                404
+            </div>
+            <div class="text-3xl">
+                Oops! Page not found
+            </div>
+        </section>
+            <section class="h-3/4">
+                <a href="http://localhost/Pet_Adoption_Platform/" class="hover:px-[30] hover:py-[12] hover:text-2xl transition-all duration-[400ms] border-blue-600 text-blue-600  border-2 rounded-full px-5 py-2">Go to Home</a>
+            </section>
     </div>
 </body>
 </html>
